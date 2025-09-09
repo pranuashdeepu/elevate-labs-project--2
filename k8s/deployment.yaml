@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elevate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elevate
+  template:
+    metadata:
+      labels:
+        app: elevate
+    spec:
+      containers:
+        - name: app
+          image: pranushdeepu/elevate:latest
+          ports:
+            - containerPort: 5000
